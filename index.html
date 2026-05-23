@@ -1,0 +1,383 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,sans-serif;background:#0d0d1a;color:#eee;min-height:100vh}
+.header{background:#111827;border-bottom:3px solid #e94560;padding:16px 28px;position:sticky;top:0;z-index:10;display:flex;justify-content:space-between;align-items:center}
+.header h1{font-size:15px;color:#fff;font-weight:700}
+.header span{font-size:12px;color:#a0b4cc}
+.container{max-width:780px;margin:0 auto;padding:28px 20px}
+/* bloque de cada parte */
+.part{margin-bottom:36px;border-radius:8px;overflow:hidden;border:1px solid #1e293b}
+.part-header{background:#111827;padding:14px 22px;display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid #e94560}
+.part-header .ph-left{display:flex;align-items:center;gap:12px}
+.part-num{background:#e94560;color:#fff;font-size:11px;font-weight:700;padding:4px 10px;border-radius:2px;text-transform:uppercase;letter-spacing:.5px}
+.part-title{font-size:14px;font-weight:700;color:#fff}
+.part-slide{font-size:12px;color:#a0b4cc}
+.part-time{font-size:12px;color:#f0c040;font-weight:700}
+.part-body{background:#141428;padding:22px 24px}
+/* bloque de cada integrante */
+.speaker-block{margin-bottom:20px}
+.speaker-block:last-child{margin-bottom:0}
+.speaker-name{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.sn-badge{background:#1e3a5f;border-left:4px solid #e94560;color:#e94560;font-size:12px;font-weight:700;padding:6px 14px;border-radius:0 4px 4px 0;text-transform:uppercase;letter-spacing:.5px}
+.speech{background:#0f172a;border-radius:6px;padding:16px 20px;font-size:14.5px;color:#dde;line-height:2;border:1px solid #1e293b}
+.speech strong{color:#fff}
+.speech em{color:#a0b4cc;font-style:italic}
+/* fórmulas dentro del guion */
+.f{display:inline-block;background:rgba(233,69,96,.12);border:1px solid rgba(233,69,96,.3);color:#e94560;font-size:13px;padding:1px 8px;border-radius:3px;font-family:'Courier New',monospace;margin:0 2px}
+/* cómo leer */
+.read-tip{background:rgba(240,192,64,.06);border-left:3px solid #f0c040;padding:10px 16px;border-radius:0 6px 6px 0;margin-top:14px;font-size:13px;color:#f0c040;line-height:1.8}
+.read-tip strong{color:#fff}
+/* separador visual */
+.divider{height:1px;background:#1e293b;margin:0 24px}
+/* resumen total */
+.summary{background:#111827;border:1px solid #e94560;border-radius:8px;padding:20px 24px;margin-bottom:36px}
+.summary h3{color:#e94560;font-size:13px;text-transform:uppercase;letter-spacing:1px;margin-bottom:14px}
+.sum-row{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid #1e293b;font-size:13px}
+.sum-row:last-child{border-bottom:none}
+.sum-row .sr-label{color:#a0b4cc}
+.sum-row .sr-val{color:#fff;font-weight:700}
+.total-time{background:#e94560;color:#fff;text-align:center;padding:10px 20px;border-radius:6px;margin-top:14px;font-weight:700;font-size:15px}
+</style>
+
+<div class="header">
+  <h1>📋 GUIÓN DEL VIDEO — Multiplicadores de Lagrange · Ingeniería de Sistemas</h1>
+  <span>Úsalo junto a la presentación de diapositivas</span>
+</div>
+
+<div class="container">
+
+<!-- RESUMEN -->
+<div class="summary">
+  <h3>⏱ Resumen de tiempos y partes</h3>
+  <div class="sum-row"><span class="sr-label">Diapositiva 1 — Portada</span><span class="sr-val">Integrante 1 · ~30 seg</span></div>
+  <div class="sum-row"><span class="sr-label">Diapositiva 2 — Contexto del problema</span><span class="sr-val">Integrante 1 · ~60 seg</span></div>
+  <div class="sum-row"><span class="sr-label">Diapositiva 3 — Variables y modelo de costo</span><span class="sr-val">Integrante 2 · ~75 seg</span></div>
+  <div class="sum-row"><span class="sr-label">Diapositiva 4 — Función objetivo y restricción</span><span class="sr-val">Integrante 2 · ~60 seg</span></div>
+  <div class="sum-row"><span class="sr-label">Diapositiva 5 — Fundamento del método</span><span class="sr-val">Integrante 3 · ~75 seg</span></div>
+  <div class="sum-row"><span class="sr-label">Diapositiva 6 — Derivadas parciales</span><span class="sr-val">Integrante 3 · ~90 seg</span></div>
+  <div class="sum-row"><span class="sr-label">Diapositiva 7 — Resolución de λ</span><span class="sr-val">Integrante 3 · ~75 seg</span></div>
+  <div class="sum-row"><span class="sr-label">Diapositiva 8 — Valores óptimos</span><span class="sr-val">Integrante 3 · ~70 seg</span></div>
+  <div class="sum-row"><span class="sr-label">Diapositiva 9 — Distribución y costo mínimo</span><span class="sr-val">Integrante 1 · ~75 seg</span></div>
+  <div class="sum-row"><span class="sr-label">Diapositiva 10 — Comparación y ahorro</span><span class="sr-val">Integrante 1 · ~70 seg</span></div>
+  <div class="sum-row"><span class="sr-label">Diapositiva 11 — Conclusiones</span><span class="sr-val">Todos · ~90 seg</span></div>
+  <div class="sum-row"><span class="sr-label">Diapositiva 12 — Cierre</span><span class="sr-val">Integrante 1 · ~20 seg</span></div>
+  <div class="total-time">⏱ Duración total estimada: 10 a 12 minutos</div>
+</div>
+
+<!-- PARTE 1 -->
+<div class="part">
+  <div class="part-header">
+    <div class="ph-left">
+      <span class="part-num">Diapositiva 1</span>
+      <span class="part-title">Portada — Presentación del grupo</span>
+    </div>
+    <span class="part-time">⏱ ~30 seg</span>
+  </div>
+  <div class="part-body">
+    <div class="speaker-block">
+      <div class="speaker-name"><span class="sn-badge">🎙 Integrante 1</span></div>
+      <div class="speech">
+        Buenos días / tardes. Somos estudiantes de <strong>Ingeniería de Sistemas</strong> y este es nuestro proyecto de aula de Cálculo Multivariable. El título de nuestro trabajo es: <em>"Optimización del Balanceo de Carga en un Sistema de Servidores Distribuidos mediante el Método de los Multiplicadores de Lagrange"</em>. A lo largo de este video vamos a explicar el problema que seleccionamos, cómo lo modelamos matemáticamente, cómo lo resolvimos, y qué conclusiones obtuvimos.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PARTE 2 -->
+<div class="part">
+  <div class="part-header">
+    <div class="ph-left">
+      <span class="part-num">Diapositiva 2</span>
+      <span class="part-title">Contexto del Problema</span>
+    </div>
+    <span class="part-time">⏱ ~60 seg</span>
+  </div>
+  <div class="part-body">
+    <div class="speaker-block">
+      <div class="speaker-name"><span class="sn-badge">🎙 Integrante 1</span></div>
+      <div class="speech">
+        El problema que seleccionamos está directamente relacionado con nuestra área de formación: los <strong>sistemas distribuidos</strong> y la infraestructura de servidores. Imaginemos que una empresa tecnológica tiene un <strong>centro de datos</strong>, lo que se conoce como un <em>data center</em>, con <strong>tres servidores físicos</strong>. Estos servidores no son iguales: cada uno fue comprado en un momento diferente, entonces tienen distintas generaciones de procesadores y diferentes niveles de eficiencia energética.<br><br>
+        El sistema recibe en total <strong>120 tareas por segundo</strong> de los usuarios, y alguien tiene que decidir: ¿cuántas de esas 120 tareas le doy al servidor uno, cuántas al dos, y cuántas al tres? Esa es exactamente la pregunta que vamos a responder con el método de los multiplicadores de Lagrange. Y esto no es teórico: es la base de sistemas que usamos todos los días, como AWS, Google Cloud, los balanceadores de carga NGINX o Kubernetes.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PARTE 3 -->
+<div class="part">
+  <div class="part-header">
+    <div class="ph-left">
+      <span class="part-num">Diapositiva 3</span>
+      <span class="part-title">Variables y Modelo de Costo</span>
+    </div>
+    <span class="part-time">⏱ ~75 seg</span>
+  </div>
+  <div class="part-body">
+    <div class="speaker-block">
+      <div class="speaker-name"><span class="sn-badge">🎙 Integrante 2</span></div>
+      <div class="speech">
+        Ahora voy a explicar cómo transformamos ese problema real en un modelo matemático. Primero definimos las <strong>variables de decisión</strong>: llamamos <span class="f">x₁</span> a las tareas por segundo asignadas al servidor uno, <span class="f">x₂</span> a las del servidor dos, y <span class="f">x₃</span> a las del servidor tres.<br><br>
+        Luego necesitamos modelar el costo de cada servidor. Usamos un <strong>modelo cuadrático</strong>, que es el más apropiado para este tipo de sistema porque refleja un hecho real: a mayor carga, el costo no crece de forma lineal, sino que crece mucho más rápido, debido al mayor consumo de energía, la generación de calor y la degradación del rendimiento.<br><br>
+        La fórmula del costo de cada servidor es <span class="f">C = k · x²</span>, es decir: <em>"C igual a k por x al cuadrado"</em>, donde <span class="f">k</span> es una constante de eficiencia. El servidor S₁ tiene <span class="f">k igual a dos</span>, el S₂ tiene <span class="f">k igual a tres</span> porque es el menos eficiente, y el S₃ tiene <span class="f">k igual a uno</span> porque es el más nuevo y eficiente.
+      </div>
+      <div class="read-tip">
+        💡 <strong>Cómo leer las fórmulas en voz alta:</strong><br>
+        <span class="f">C₁(x₁) = 2x₁²</span> → <em>"el costo del servidor uno es igual a dos por equis uno al cuadrado"</em><br>
+        <span class="f">C₂(x₂) = 3x₂²</span> → <em>"el costo del servidor dos es igual a tres por equis dos al cuadrado"</em><br>
+        <span class="f">C₃(x₃) = x₃²</span> → <em>"el costo del servidor tres es igual a equis tres al cuadrado"</em>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PARTE 4 -->
+<div class="part">
+  <div class="part-header">
+    <div class="ph-left">
+      <span class="part-num">Diapositiva 4</span>
+      <span class="part-title">Función Objetivo y Restricción</span>
+    </div>
+    <span class="part-time">⏱ ~60 seg</span>
+  </div>
+  <div class="part-body">
+    <div class="speaker-block">
+      <div class="speaker-name"><span class="sn-badge">🎙 Integrante 2</span></div>
+      <div class="speech">
+        Con el modelo de costo definido, escribimos la <strong>función objetivo</strong>: lo que queremos minimizar es la suma del costo de los tres servidores. La leemos así: <em>"minimizar la función efe de equis uno, equis dos, equis tres, igual a: dos por equis uno al cuadrado, más tres por equis dos al cuadrado, más equis tres al cuadrado"</em>.<br><br>
+        Pero no podemos asignar las cargas libremente: hay una condición que siempre debe cumplirse, que es la <strong>restricción del sistema</strong>. La suma de las tres cargas debe ser exactamente 120. La leemos así: <em>"g de equis uno, equis dos, equis tres, igual a: equis uno más equis dos más equis tres, menos ciento veinte, igual a cero"</em>.<br><br>
+        Tenemos entonces una <strong>función objetivo cuadrática</strong> con una <strong>restricción de igualdad lineal</strong>. Ese es exactamente el tipo de problema que el método de los multiplicadores de Lagrange está diseñado para resolver.
+      </div>
+      <div class="read-tip">
+        💡 <strong>Cómo leer:</strong><br>
+        <span class="f">f(x₁, x₂, x₃)</span> → <em>"efe de equis uno, equis dos, equis tres"</em><br>
+        <span class="f">g(x₁,x₂,x₃) = 0</span> → <em>"ge de equis uno, equis dos, equis tres, igual a cero"</em><br>
+        <span class="f">min</span> → <em>"minimizar"</em>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PARTE 5 -->
+<div class="part">
+  <div class="part-header">
+    <div class="ph-left">
+      <span class="part-num">Diapositiva 5</span>
+      <span class="part-title">Fundamento Teórico del Método de Lagrange</span>
+    </div>
+    <span class="part-time">⏱ ~75 seg</span>
+  </div>
+  <div class="part-body">
+    <div class="speaker-block">
+      <div class="speaker-name"><span class="sn-badge">🎙 Integrante 3</span></div>
+      <div class="speech">
+        Voy a explicar el método que usamos para resolver este problema. El <strong>método de los multiplicadores de Lagrange</strong> es una técnica del cálculo multivariable que nos permite encontrar el mínimo o máximo de una función cuando hay restricciones de igualdad.<br><br>
+        El principio fundamental dice que, en el punto óptimo, el <strong>gradiente de la función objetivo</strong> y el <strong>gradiente de la restricción</strong> son paralelos. Esto se escribe como: <em>"gradiente de efe, igual a lambda por gradiente de ge"</em>.<br><br>
+        Para aplicar esto en la práctica, construimos la <strong>función Lagrangiana</strong>, que llamamos ℒ. La leemos así: <em>"el Lagrangiano es igual a: dos equis uno al cuadrado, más tres equis dos al cuadrado, más equis tres al cuadrado, menos lambda por paréntesis: equis uno más equis dos más equis tres, menos ciento veinte, cierra paréntesis"</em>. Lambda es el <strong>multiplicador de Lagrange</strong>, y veremos que tiene un significado muy útil más adelante.
+      </div>
+      <div class="read-tip">
+        💡 <strong>Cómo leer:</strong><br>
+        <span class="f">∇f</span> → <em>"gradiente de efe"</em><br>
+        <span class="f">λ</span> → <em>"lambda"</em><br>
+        <span class="f">ℒ</span> → <em>"el Lagrangiano"</em> o <em>"la función Lagrangiana"</em><br>
+        <span class="f">∇f = λ · ∇g</span> → <em>"gradiente de efe, igual a lambda por gradiente de ge"</em>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PARTE 6 -->
+<div class="part">
+  <div class="part-header">
+    <div class="ph-left">
+      <span class="part-num">Diapositiva 6</span>
+      <span class="part-title">Derivadas Parciales — Sistema de Ecuaciones</span>
+    </div>
+    <span class="part-time">⏱ ~90 seg</span>
+  </div>
+  <div class="part-body">
+    <div class="speaker-block">
+      <div class="speaker-name"><span class="sn-badge">🎙 Integrante 3</span></div>
+      <div class="speech">
+        Para encontrar el punto óptimo, calculamos las <strong>derivadas parciales del Lagrangiano</strong> respecto a cada variable, y las igualamos a cero. Esto nos da un sistema de cuatro ecuaciones.<br><br>
+        La <strong>primera ecuación</strong>: <em>"derivada parcial del Lagrangiano respecto a equis uno, igual a cuatro por equis uno, menos lambda, igual a cero"</em>. Despejamos y obtenemos: <em>"equis uno es igual a lambda sobre cuatro"</em>.<br><br>
+        La <strong>segunda ecuación</strong>: <em>"derivada parcial respecto a equis dos, igual a seis por equis dos, menos lambda, igual a cero"</em>. Despejamos: <em>"equis dos es igual a lambda sobre seis"</em>.<br><br>
+        La <strong>tercera ecuación</strong>: <em>"derivada parcial respecto a equis tres, igual a dos por equis tres, menos lambda, igual a cero"</em>. Despejamos: <em>"equis tres es igual a lambda sobre dos"</em>.<br><br>
+        La <strong>cuarta ecuación</strong> se obtiene al derivar respecto a lambda: nos devuelve la restricción original, es decir, <em>"equis uno más equis dos más equis tres igual a ciento veinte"</em>. Ahora las tres cargas están expresadas en función de lambda. Solo falta encontrar el valor de lambda.
+      </div>
+      <div class="read-tip">
+        💡 <strong>Cómo leer:</strong><br>
+        <span class="f">∂ℒ/∂x₁</span> → <em>"derivada parcial del Lagrangiano respecto a equis uno"</em><br>
+        <span class="f">4x₁ − λ = 0</span> → <em>"cuatro equis uno, menos lambda, igual a cero"</em><br>
+        <span class="f">x₁ = λ/4</span> → <em>"equis uno es igual a lambda sobre cuatro"</em>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PARTE 7 -->
+<div class="part">
+  <div class="part-header">
+    <div class="ph-left">
+      <span class="part-num">Diapositiva 7</span>
+      <span class="part-title">Resolución — Valor de λ</span>
+    </div>
+    <span class="part-time">⏱ ~75 seg</span>
+  </div>
+  <div class="part-body">
+    <div class="speaker-block">
+      <div class="speaker-name"><span class="sn-badge">🎙 Integrante 3</span></div>
+      <div class="speech">
+        Ahora sustituimos las expresiones de equis uno, equis dos y equis tres en la restricción. Tenemos: <em>"lambda sobre cuatro, más lambda sobre seis, más lambda sobre dos, igual a ciento veinte"</em>.<br><br>
+        Para sumar estas fracciones buscamos el mínimo común múltiplo de cuatro, seis y dos. El MCM es <strong>doce</strong>. Entonces convertimos cada fracción: lambda sobre cuatro se convierte en tres lambda sobre doce; lambda sobre seis se convierte en dos lambda sobre doce; y lambda sobre dos se convierte en seis lambda sobre doce.<br><br>
+        Sumando los numeradores: tres más dos más seis es once. Entonces tenemos: <em>"once lambda sobre doce, igual a ciento veinte"</em>. Despejando lambda: <em>"lambda es igual a ciento veinte por doce, sobre once"</em>. Eso es <em>"mil cuatrocientos cuarenta sobre once"</em>, que es aproximadamente <strong>ciento treinta punto noventa y uno</strong>. Con este valor ya podemos calcular las cargas óptimas.
+      </div>
+      <div class="read-tip">
+        💡 <strong>Cómo leer:</strong><br>
+        <span class="f">λ = 1440/11</span> → <em>"lambda es igual a mil cuatrocientos cuarenta sobre once"</em><br>
+        <span class="f">11λ/12 = 120</span> → <em>"once lambda sobre doce, igual a ciento veinte"</em><br>
+        <span class="f">λ ≈ 130.91</span> → <em>"lambda es aproximadamente ciento treinta punto noventa y uno"</em>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PARTE 8 -->
+<div class="part">
+  <div class="part-header">
+    <div class="ph-left">
+      <span class="part-num">Diapositiva 8</span>
+      <span class="part-title">Valores Óptimos y Verificación</span>
+    </div>
+    <span class="part-time">⏱ ~70 seg</span>
+  </div>
+  <div class="part-body">
+    <div class="speaker-block">
+      <div class="speaker-name"><span class="sn-badge">🎙 Integrante 3</span></div>
+      <div class="speech">
+        Sustituimos lambda en las expresiones que encontramos antes. Para el servidor S₁: <em>"equis uno óptimo es igual a lambda sobre cuatro, que es mil cuatrocientos cuarenta sobre cuarenta y cuatro, que simplificado es trescientos sesenta sobre once, aproximadamente <strong>treinta y dos punto setenta y tres tareas por segundo</strong>"</em>.<br><br>
+        Para el servidor S₂: <em>"equis dos óptimo es igual a lambda sobre seis, que es mil cuatrocientos cuarenta sobre sesenta y seis, simplificado doscientos cuarenta sobre once, aproximadamente <strong>veintiún punto ochenta y dos tareas por segundo</strong>"</em>.<br><br>
+        Para el servidor S₃: <em>"equis tres óptimo es igual a lambda sobre dos, que es mil cuatrocientos cuarenta sobre veintidós, simplificado setecientos veinte sobre once, aproximadamente <strong>sesenta y cinco punto cuarenta y cinco tareas por segundo</strong>"</em>.<br><br>
+        Verificamos que la suma es exactamente ciento veinte: trescientos sesenta más doscientos cuarenta más setecientos veinte, todo sobre once, es mil trescientos veinte sobre once, que es exactamente <strong>ciento veinte</strong>. La restricción se cumple.
+      </div>
+      <div class="read-tip">
+        💡 <strong>Cómo leer:</strong><br>
+        <span class="f">x₁*</span> → <em>"equis uno óptimo"</em> o <em>"equis uno estrella"</em><br>
+        <span class="f">360/11</span> → <em>"trescientos sesenta sobre once"</em><br>
+        <span class="f">≈ 32.73</span> → <em>"aproximadamente treinta y dos punto setenta y tres"</em>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PARTE 9 -->
+<div class="part">
+  <div class="part-header">
+    <div class="ph-left">
+      <span class="part-num">Diapositiva 9</span>
+      <span class="part-title">Distribución Óptima y Costo Mínimo</span>
+    </div>
+    <span class="part-time">⏱ ~75 seg</span>
+  </div>
+  <div class="part-body">
+    <div class="speaker-block">
+      <div class="speaker-name"><span class="sn-badge">🎙 Integrante 1</span></div>
+      <div class="speech">
+        Los resultados que obtuvimos son muy interesantes. El servidor S₃, que es el más eficiente con k igual a uno, recibe la <strong>mayor carga</strong>: casi el 55% del total, con sesenta y cinco punto cuarenta y cinco tareas por segundo. El servidor S₁, de eficiencia media, recibe una carga intermedia del 27%. Y el servidor S₂, el menos eficiente con k igual a tres, recibe la <strong>menor carga</strong>: solo el 18%.<br><br>
+        Esto tiene todo el sentido: el método distribuyó el trabajo de forma <strong>proporcional a la eficiencia</strong> de cada servidor, no de forma igualitaria.<br><br>
+        El costo total mínimo que se obtiene al sustituir estos valores en la función objetivo es: <em>"efe óptimo es igual a novecientos cincuenta mil cuatrocientos sobre ciento veintiuno, aproximadamente <strong>siete mil ochocientos cincuenta y cinco punto treinta y siete unidades de costo</strong>"</em>.
+      </div>
+      <div class="read-tip">
+        💡 <strong>Cómo leer:</strong><br>
+        <span class="f">f* = 950400/121</span> → <em>"efe óptimo es igual a novecientos cincuenta mil cuatrocientos sobre ciento veintiuno"</em><br>
+        <span class="f">≈ 7855.37</span> → <em>"aproximadamente siete mil ochocientos cincuenta y cinco punto treinta y siete"</em>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PARTE 10 -->
+<div class="part">
+  <div class="part-header">
+    <div class="ph-left">
+      <span class="part-num">Diapositiva 10</span>
+      <span class="part-title">Comparación y Ahorro — Interpretación de λ</span>
+    </div>
+    <span class="part-time">⏱ ~70 seg</span>
+  </div>
+  <div class="part-body">
+    <div class="speaker-block">
+      <div class="speaker-name"><span class="sn-badge">🎙 Integrante 1</span></div>
+      <div class="speech">
+        Para demostrar el valor del método, comparamos nuestra solución con lo que haría un administrador sin herramientas matemáticas: distribuir la carga por igual, cuarenta tareas a cada servidor. En ese caso el costo sería: <em>"dos por mil seiscientos, más tres por mil seiscientos, más mil seiscientos, que da nueve mil seiscientos"</em>.<br><br>
+        Nuestra solución logra siete mil ochocientos cincuenta y cinco punto treinta y siete, que es un <strong>18.17% menos</strong>. Eso son mil setecientas cuarenta y cuatro unidades de costo ahorradas, solo por aplicar el método correcto.<br><br>
+        Además, el valor de lambda nos dice algo muy útil: si mañana la demanda sube de ciento veinte a ciento veintiún tareas por segundo, el costo mínimo subirá aproximadamente <strong>ciento treinta punto noventa y uno unidades</strong>. Eso le permite al ingeniero decidir si conviene agregar un nuevo servidor o no.
+      </div>
+      <div class="read-tip">
+        💡 <strong>Cómo leer:</strong><br>
+        <span class="f">f(40,40,40) = 9600</span> → <em>"efe de cuarenta, cuarenta, cuarenta, es igual a nueve mil seiscientos"</em><br>
+        <span class="f">λ ≈ 130.91</span> → <em>"lambda es el costo marginal: aproximadamente ciento treinta punto noventa y uno por cada tarea adicional"</em>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PARTE 11 -->
+<div class="part">
+  <div class="part-header">
+    <div class="ph-left">
+      <span class="part-num">Diapositiva 11</span>
+      <span class="part-title">Conclusiones — Todos los integrantes</span>
+    </div>
+    <span class="part-time">⏱ ~90 seg · Todos participan</span>
+  </div>
+  <div class="part-body">
+    <div class="speaker-block">
+      <div class="speaker-name"><span class="sn-badge">🎙 Integrante 2 — Conclusiones 1 y 2</span></div>
+      <div class="speech">
+        Como <strong>primera conclusión</strong>, el método de los multiplicadores de Lagrange demostró ser una herramienta matemática poderosa para resolver problemas reales de Ingeniería de Sistemas, específicamente la distribución óptima de carga entre servidores.<br><br>
+        Como <strong>segunda conclusión</strong>, la solución óptima no es la intuitiva: sin el método, un administrador distribuiría las cargas por igual, pero eso tiene un costo un 18.17% mayor al mínimo posible.
+      </div>
+    </div>
+    <div class="divider"></div>
+    <div class="speaker-block" style="margin-top:16px">
+      <div class="speaker-name"><span class="sn-badge">🎙 Integrante 3 — Conclusión 3</span></div>
+      <div class="speech">
+        Como <strong>tercera conclusión</strong>, el multiplicador lambda no es solo un número auxiliar. Tiene un significado económico directo: representa el <strong>costo marginal del sistema</strong>, y es la herramienta que le permite al ingeniero decidir cuándo es rentable escalar la infraestructura o agregar un nuevo servidor.
+      </div>
+    </div>
+    <div class="divider"></div>
+    <div class="speaker-block" style="margin-top:16px">
+      <div class="speaker-name"><span class="sn-badge">🎙 Integrante 1 — Conclusiones 4 y 5</span></div>
+      <div class="speech">
+        Como <strong>cuarta conclusión</strong>, este tipo de optimización es la base matemática de tecnologías que usamos todos los días: los balanceadores de carga como NGINX, los orquestadores de contenedores como Kubernetes, y los sistemas de autoescalado de Amazon Web Services.<br><br>
+        Y como <strong>conclusión final</strong>, el cálculo multivariable no es solo teoría: tiene aplicación directa en lo que haremos como Ingenieros de Sistemas.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PARTE 12 -->
+<div class="part">
+  <div class="part-header">
+    <div class="ph-left">
+      <span class="part-num">Diapositiva 12</span>
+      <span class="part-title">Cierre</span>
+    </div>
+    <span class="part-time">⏱ ~20 seg</span>
+  </div>
+  <div class="part-body">
+    <div class="speaker-block">
+      <div class="speaker-name"><span class="sn-badge">🎙 Integrante 1</span></div>
+      <div class="speech">
+        Esto ha sido nuestra exposición del proyecto de Cálculo Multivariable. Demostramos que el método de los multiplicadores de Lagrange permite resolver problemas reales de Ingeniería de Sistemas de manera óptima, obteniendo un ahorro del <strong>18.17%</strong> frente a la solución intuitiva. <strong>Muchas gracias por su atención.</strong>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="text-align:center;padding:20px 0 40px;font-size:13px;color:#555">
+  Guión preparado para acompañar la presentación de diapositivas · Ingeniería de Sistemas · 2026
+</div>
+
+</div>
